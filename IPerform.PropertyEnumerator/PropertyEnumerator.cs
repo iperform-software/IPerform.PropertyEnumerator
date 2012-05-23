@@ -10,12 +10,26 @@ namespace IPerform.PropertyEnumerator
         readonly PropertyInfoEnumerator<TPropertyType> _enumerator;
 
         public PropertyEnumerator(object enumeratedObject)
-            : this(enumeratedObject, "*")
+            : this(enumeratedObject, ".")
         { }
 
         public PropertyEnumerator(object enumeratedObject, string regexp)
         {
           _enumerator = new PropertyInfoEnumerator<TPropertyType>(enumeratedObject, regexp);
+        }
+
+        public IEnumerable<TAttribute> GetClassAttributes<TAttribute>(bool inherit = false)
+        {
+            var attributes = _enumerator.Instance.GetType().GetCustomAttributes(typeof(TAttribute), inherit);
+
+            if (attributes != null)
+            {
+                return attributes.Cast<TAttribute>();
+            }
+            else
+            {
+                return Enumerable.Empty<TAttribute>();
+            }
         }
 
         public IEnumerator<Property<TPropertyType>> GetEnumerator()

@@ -14,6 +14,7 @@ namespace IPerform.PropertyEnumerator
             PropertyInfo = propertyInfo;
         }
 
+        // TODO: at some point, place a proxy class in between for property access to speed things up a bit.
         public TPropertyType Value 
         {
             get
@@ -24,6 +25,20 @@ namespace IPerform.PropertyEnumerator
             set
             {
                 PropertyInfo.SetValue(Instance, value, null);
+            }
+        }
+
+        public IEnumerable<TAttribute> GetAttribute<TAttribute>(bool inherit = false)
+        {
+            var attributes = PropertyInfo.GetCustomAttributes(typeof(TAttribute), inherit);
+
+            if (attributes != null)
+            {
+                return attributes.Cast<TAttribute>();
+            }
+            else
+            {
+                return Enumerable.Empty<TAttribute>();
             }
         }
 
