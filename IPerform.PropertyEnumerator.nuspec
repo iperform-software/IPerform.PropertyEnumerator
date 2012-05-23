@@ -1,0 +1,13 @@
+<package>
+	<metadata>
+		<id>IPerform.PropertyEnumerator</id>
+		<version>1.0.0.0</version>
+		<authors>iPerform Software BV</authors>
+		<description>
+			Handly property enumerator
+		</description>
+	</metadata>
+	<files>
+		<file src="IPerform.PropertyEnumerator\bin\Debug\IPerform.PropertyEnumerator.dll" target="lib" /> 
+	</files>
+</package>

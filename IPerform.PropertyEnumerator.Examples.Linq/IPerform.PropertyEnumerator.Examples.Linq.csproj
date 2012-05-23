@@ -38,6 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,6 +50,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SomeDTO.cs" />
+    <Compile Include="TableHeaderAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IPerform.PropertyEnumerator\IPerform.PropertyEnumerator.csproj">

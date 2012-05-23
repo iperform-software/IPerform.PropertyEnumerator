@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace IPerform.PropertyEnumerator.Examples.Basic
 {
+    [TableHeader("Beautiful {0} today", true)]
     class SomeDTO
     {
+        [Display(Name = "Arrange Tourist Visa")]
         public bool ArrangeTouristVisa
         {
             get;
